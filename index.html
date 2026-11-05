@@ -1,0 +1,450 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sohyeon Kim</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Sohyeon Kim is a Ph.D. candidate in Recreation, Sport and Tourism at the University of Illinois Urbana-Champaign, studying technology, well-being, sexuality, and intimacy in leisure and tourism.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,650&family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&display=swap">
+<style>
+/* Layout: one narrow reading column, a compact identity header with tab-style nav, four hash-routed views. */
+:root {
+  --bg: #f5f7f8;
+  --surface: #ffffff;
+  --fg: #1a2226;
+  --muted: #59666d;
+  --line: #dbe1e4;
+  --accent: #1c6470;
+  --accent-soft: #e2eff1;
+  --display: "Bricolage Grotesque", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  --body: "Source Serif 4", "Iowan Old Style", Georgia, serif;
+  --mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #111619; --surface: #171d21; --fg: #e4e9eb; --muted: #97a3a9;
+    --line: #29333a; --accent: #7cc3cb; --accent-soft: #19292d; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #111619; --surface: #171d21; --fg: #e4e9eb; --muted: #97a3a9;
+  --line: #29333a; --accent: #7cc3cb; --accent-soft: #19292d; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; background: var(--bg); color: var(--fg);
+  font: 400 1.0625rem/1.65 var(--body);
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; display: block; }
+a { color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+a:hover { text-decoration-thickness: 2px; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 3px; }
+
+.wrap {
+  max-width: 50rem; margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 2.5rem 4rem;
+}
+
+/* Header */
+.site-head { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 1rem 2rem; padding-bottom: 1rem; border-bottom: 1px solid var(--line); }
+.brand { display: flex; flex-direction: column; gap: .15rem; min-width: 0; }
+.brand-name { font: 650 1.6rem/1.1 var(--display); letter-spacing: -.01em; color: var(--fg); text-decoration: none; }
+.brand-role { font: 400 .78rem/1.4 var(--mono); color: var(--muted); letter-spacing: .02em; }
+nav ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: .25rem; }
+nav a {
+  display: block; padding: .35rem .75rem; border-radius: 999px;
+  font: 500 .95rem/1.2 var(--display); color: var(--muted); text-decoration: none;
+}
+nav a:hover { color: var(--fg); background: var(--accent-soft); }
+nav a[aria-current="page"] { color: var(--accent); background: var(--accent-soft); }
+
+/* Shared type */
+h1, h2, h3 { font-family: var(--display); text-wrap: balance; color: var(--fg); }
+h2 { font-weight: 650; font-size: 1.35rem; line-height: 1.25; margin: 0; }
+h3 { font-weight: 500; font-size: 1.05rem; line-height: 1.35; margin: 0; }
+.eyebrow { font: 500 .72rem/1.3 var(--mono); text-transform: uppercase; letter-spacing: .12em; color: var(--muted); margin: 0; }
+.muted { color: var(--muted); }
+section.view { padding-top: 2.25rem; display: grid; gap: 2.75rem; }
+.block { display: grid; gap: 1.1rem; }
+.block-head { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; border-bottom: 1px solid var(--line); padding-bottom: .4rem; }
+.block-head a { font: 500 .8rem/1 var(--mono); }
+
+/* About */
+.intro { display: grid; grid-template-columns: 210px minmax(0, 1fr); gap: 2.25rem; align-items: start; }
+.portrait-col { display: grid; gap: .6rem; min-width: 0; }
+.portrait { border-radius: 6px; width: 100%; height: auto; object-fit: contain; }
+.intro-text { display: grid; gap: 1rem; min-width: 0; }
+.intro-text h1 { font-weight: 650; font-size: clamp(2rem, 5vw, 2.6rem); line-height: 1.05; letter-spacing: -.02em; margin: 0; }
+.intro-text p { margin: 0; max-width: 62ch; }
+.contact { display: grid; gap: .55rem; margin-top: .5rem; padding-top: 1rem; border-top: 1px solid var(--line); }
+.contact-row { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem .9rem; font-size: .98rem; }
+.contact-label { font: 500 .72rem/1 var(--mono); text-transform: uppercase; letter-spacing: .1em; color: var(--muted); width: 5.5rem; flex: none; }
+.email { font-family: var(--mono); font-size: .92rem; user-select: all; }
+.portrait-col .contact { margin-top: 0; padding-top: .8rem; gap: .8rem; }
+.portrait-col .contact-row { flex-direction: column; align-items: flex-start; gap: .35rem; font-size: .92rem; }
+.portrait-col .contact-label { width: auto; }
+.portrait-col .link-list { flex-direction: column; gap: .2rem; }
+.portrait-col .email { font-size: .82rem; word-break: break-all; }
+.email-line { display: flex; flex-wrap: wrap; align-items: center; gap: .4rem; }
+.copy-btn {
+  font: 500 .75rem/1 var(--mono); color: var(--accent); background: transparent;
+  border: 1px solid var(--line); border-radius: 999px; padding: .3rem .6rem; cursor: pointer;
+}
+.copy-btn:hover { border-color: var(--accent); }
+.link-list { display: flex; flex-wrap: wrap; gap: .35rem 1rem; }
+
+/* Publication / item lists */
+.items { list-style: none; margin: 0; padding: 0; display: grid; gap: 1.6rem; }
+.item { display: grid; grid-template-columns: 4.25rem minmax(0, 1fr); gap: 1rem; }
+.item-year { font: 500 .85rem/1.6 var(--mono); color: var(--muted); font-variant-numeric: tabular-nums; padding-top: .1rem; }
+.item-body { display: grid; gap: .3rem; min-width: 0; }
+.cite { font-size: .97rem; color: var(--muted); margin: 0; }
+.cite b { color: var(--fg); font-weight: 600; }
+.cite i { color: var(--fg); }
+.status { display: inline-block; font: 500 .7rem/1 var(--mono); letter-spacing: .06em; text-transform: uppercase; padding: .28rem .5rem; border-radius: 4px; background: var(--accent-soft); color: var(--accent); vertical-align: .12em; margin-left: .25rem; }
+.actions { display: flex; flex-wrap: wrap; gap: .25rem 1rem; font: 400 .82rem/1.6 var(--mono); }
+details { margin-top: .15rem; }
+summary { cursor: pointer; font: 400 .82rem/1.6 var(--mono); color: var(--accent); width: fit-content; }
+summary::marker { color: var(--muted); }
+details p + p { margin-top: .5rem; }
+.desc { margin-top: .6rem; padding: .9rem 1.1rem; background: var(--surface); border: 1px solid var(--line); border-radius: 6px; font-size: .97rem; max-width: 65ch; display: grid; gap: .6rem; }
+.desc p { margin: 0 !important; padding: 0 !important; background: none !important; border: 0 !important; max-width: none !important; font-size: inherit !important; }
+.desc .class-size { color: var(--muted); font-size: .92rem !important; }
+details p { margin: .6rem 0 0; padding: .9rem 1.1rem; background: var(--surface); border: 1px solid var(--line); border-radius: 6px; font-size: .97rem; max-width: 65ch; }
+
+/* Compact rows (talks, teaching, CV) */
+.rows { list-style: none; margin: 0; padding: 0; display: grid; }
+.row { display: grid; grid-template-columns: 7.5rem minmax(0, 1fr); gap: 1rem; padding: .75rem 0; border-top: 1px solid var(--line); }
+.row:first-child { border-top: 0; padding-top: 0; }
+.row-when { font: 400 .82rem/1.65 var(--mono); color: var(--muted); font-variant-numeric: tabular-nums; }
+.row-what { min-width: 0; font-size: .98rem; }
+.row-what p { margin: 0; }
+.row-what .sub { color: var(--muted); font-size: .92rem; }
+.note { font-size: .88rem; color: var(--muted); margin: 0; }
+.course-code { font-family: var(--mono); font-size: .88rem; color: var(--accent); margin-right: .35rem; }
+
+.cv-cta { display: flex; flex-wrap: wrap; align-items: center; gap: .75rem 1.25rem; padding: 1.1rem 1.25rem; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; }
+.cv-cta a.button { font: 500 .95rem/1 var(--display); background: var(--accent); color: var(--bg); padding: .7rem 1.1rem; border-radius: 999px; text-decoration: none; }
+
+footer { margin-top: 4rem; padding-top: 1rem; border-top: 1px solid var(--line); font: 400 .78rem/1.5 var(--mono); color: var(--muted); }
+
+@media (max-width: 640px) {
+  .wrap { padding-block: 1.5rem 3rem; }
+  .intro { grid-template-columns: 1fr; gap: 1.25rem; }
+  .portrait { width: 210px; }
+  .portrait-col { justify-items: start; }
+  .portrait-col .contact { width: 100%; }
+  .portrait-col .link-list { flex-direction: row; gap: .35rem 1rem; }
+    .item { grid-template-columns: 1fr; gap: .2rem; }
+  .row { grid-template-columns: 1fr; gap: .1rem; }
+  .contact-label { width: 100%; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  section.view:not([hidden]) { animation: rise .35s ease-out both; }
+  @keyframes rise { from { opacity: .4; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+}
+</style>
+
+<div class="wrap">
+  <header class="site-head">
+    <div class="brand">
+      <a class="brand-name" href="#about">Sohyeon Kim</a>
+      <span class="brand-role">Ph.D. Candidate · Recreation, Sport and Tourism · UIUC</span>
+    </div>
+    <nav aria-label="Main">
+      <ul>
+        <li><a href="#about" data-view="about">About</a></li>
+        <li><a href="#research" data-view="research">Research</a></li>
+        <li><a href="#teaching" data-view="teaching">Teaching</a></li>
+        <li><a href="#cv" data-view="cv">CV</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <!-- ABOUT -->
+    <section class="view" id="view-about" data-view="about" aria-label="About">
+      <div class="intro">
+        <div class="portrait-col">
+          <img class="portrait" src="assets/profile.jpg" alt="Portrait of Sohyeon Kim" width="639" height="800">
+        <div class="contact">
+          <div class="contact-row">
+            <span class="contact-label">Email</span>
+            <span class="email-line"><a class="email" href="mailto:sk104@illinois.edu">sk104@illinois.edu</a>
+            <button class="copy-btn" id="copy-email" type="button" data-copy="sk104@illinois.edu">Copy</button></span>
+          </div>
+          <div class="contact-row">
+            <span class="contact-label">Profiles</span>
+            <span class="link-list">
+              <a href="https://scholar.google.com/citations?user=oZdnL7kAAAAJ&amp;hl=en" target="_blank" rel="noopener">Google Scholar</a>
+              <a href="https://orcid.org/0009-0001-0138-518X" target="_blank" rel="noopener">ORCID</a>
+              <a href="assets/Kim_CV.pdf" target="_blank" rel="noopener">CV (PDF)</a>
+            </span>
+          </div>
+        </div>
+        </div>
+        <div class="intro-text">
+          <h1>Sohyeon Kim</h1>
+          <p>I am a Ph.D. candidate in the Department of Recreation, Sport and Tourism at the University of Illinois Urbana-Champaign, advised by Dr. Liza Berdychevsky. As an interdisciplinary scholar, I investigate how individuals navigate identity, intimacy, and sexuality within mediated leisure environments, with a particular focus on user agency and biopsychosocial health across digital platforms.</p>
+          <p>Methodologically, I utilize qualitative, quantitative, and mixed-methods designs. Conceptually, my research bridges critical leisure studies, human–technology interaction, sociology, and communication to address how platform architecture influences connection, vulnerability, and behavior.</p>
+          <p>My dissertation investigates sexual interactions and expression in digital contexts, analyzing user motivations and the continuous negotiation of risks and benefits. Broadly, my scholarship generates theoretically grounded, empirical insights to inform ethical digital design, platform policy, and health promotion across technology-mediated recreation and daily life.</p>
+        </div>
+      </div>
+
+      <div class="block">
+        <div class="block-head"><h2>Selected Publications</h2><a href="#research">All research →</a></div>
+        <ul class="items">
+          <li class="item">
+            <span class="item-year">2025</span>
+            <div class="item-body">
+              <h3><a href="https://doi.org/10.1080/01490400.2025.2503974" target="_blank" rel="noopener">Cybersex as Leisure: Socio-Demographic and Socio-Psychological Profiling of the (Non)Participants in Online Sexual Activities</a></h3>
+              <p class="cite"><b>Kim, S.</b> &amp; Berdychevsky, L. · <i>Leisure Sciences</i>, 1–26</p>
+            </div>
+          </li>
+          <li class="item">
+            <span class="item-year">2025</span>
+            <div class="item-body">
+              <h3><a href="https://doi.org/10.29333/ajqr/16281" target="_blank" rel="noopener">“Covid Was a Worldwide Pandemic That Caused Trauma for Everyone… There Were Also ‘Silver-linings’”: Adult and Youth Qualitative Perspectives</a></h3>
+              <p class="cite">Dariotis, J. K., Eldreth, D. A., <b>Kim, S.</b>, Berdychevsky, L., Park, Y. R., &amp; Smith, R. L. · <i>American Journal of Qualitative Research</i>, 9(2), 176–206</p>
+            </div>
+          </li>
+          <li class="item">
+            <span class="item-year">2019</span>
+            <div class="item-body">
+              <h3><a href="https://doi.org/10.1016/j.tmp.2019.05.010" target="_blank" rel="noopener">Network Text Analysis of Medical Tourism in Newspapers Using Text Mining: The South Korea Case</a></h3>
+              <p class="cite"><b>Kim, S.</b> &amp; Lee, W. S. · <i>Tourism Management Perspectives</i>, 31, 332–339</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- RESEARCH -->
+    <section class="view" id="view-research" data-view="research" aria-label="Research" hidden>
+      <div class="block">
+        <div class="block-head"><h2>Peer-Reviewed Journal Articles</h2></div>
+        <ul class="items">
+          <li class="item">
+            <span class="item-year">2025</span>
+            <div class="item-body">
+              <h3>Cybersex as Leisure: Socio-Demographic and Socio-Psychological Profiling of the (Non)Participants in Online Sexual Activities</h3>
+              <p class="cite"><b>Kim, S.</b> &amp; Berdychevsky, L. · <i>Leisure Sciences</i>, 1–26 · <a href="https://doi.org/10.1080/01490400.2025.2503974" target="_blank" rel="noopener">DOI</a></p>
+              <details>
+                <summary>Abstract</summary>
+                <p>Exploring the intersection of sexuality and leisure in the digital age, this study profiles individuals based on their online sexual repertoires. Using cross-sectional online survey data (<i>N</i> = 1,006), we examined the socio-demographic and socio-psychological characteristics using MANOVA and Chi-Square tests. Individuals with broader online sexual experiences, often older, male, and in open/casual relationships, reported more positive attitudes toward online sexual activity, greater sexual comfort, and a stronger view of sex as leisure, encompassing intrinsic pleasure and its biopsychosocial benefits. They also endorsed more egalitarian sexual standards. Individuals without online sexual experience, typically younger, female, and in exclusive relationships, and those with narrower repertoires, often never-married and not in relationships, differed significantly in these profiles. These findings highlight the importance of considering cybersex within the context of leisure and inform targeted and tailored interventions for health and cybersecurity.</p>
+              </details>
+            </div>
+          </li>
+          <li class="item">
+            <span class="item-year">2025</span>
+            <div class="item-body">
+              <h3>“Covid Was a Worldwide Pandemic That Caused Trauma for Everyone… There Were Also ‘Silver-linings’”: Adult and Youth Qualitative Perspectives</h3>
+              <p class="cite">Dariotis, J. K., Eldreth, D. A., <b>Kim, S.</b>, Berdychevsky, L., Park, Y. R., &amp; Smith, R. L. · <i>American Journal of Qualitative Research</i>, 9(2), 176–206 · <a href="https://doi.org/10.29333/ajqr/16281" target="_blank" rel="noopener">DOI</a></p>
+              <details>
+                <summary>Abstract</summary>
+                <p>The global COVID-19 pandemic had both detrimental and positive impacts on children, youth, and families. To inform policy and public health recommendations for future services, resources, and mandates, there is a need to take a more holistic approach to understanding stress, adaptations, role shifts, and resilience from multiple perspectives. Using an open-ended question format, this study surveyed parents, childcare providers, and youth (ages 12–17) about their experiences with the pandemic in general and changes observed in their children (adult participants) and themselves (youth participants). Data from 479 participants were analyzed. Via thematic content analysis, nine themes emerged that are organized into five categories: (1) developmental, (2) impact on loss, (3) modified connections with others, (4) adjustment, and (5) mandate and financial woes. With developmental maturity also came developmental delays. Participants reported heightened anxiety, sadness, and fear of death and illness that is related to the fact that many experienced grief in many ways. Participants reported a variety of adaptive coping strategies that helped them appear resilient. The change to online schooling was particularly challenging for many parents and educators. Some perceived the pandemic mandates to be harmful without alternatives being considered. There is a cautionary tale to be told about public health acceptance and relevance for physical, psychological, and financial health. Families shifted their priorities. Connections with others were strained due to different opinions. Recommendations are offered in preparation for future pandemics that may help families, adults, and youth experience more silver linings and fewer thorns.</p>
+              </details>
+            </div>
+          </li>
+          <li class="item">
+            <span class="item-year">2019</span>
+            <div class="item-body">
+              <h3>Network Text Analysis of Medical Tourism in Newspapers Using Text Mining: The South Korea Case</h3>
+              <p class="cite"><b>Kim, S.</b> &amp; Lee, W. S. · <i>Tourism Management Perspectives</i>, 31, 332–339 · <a href="https://doi.org/10.1016/j.tmp.2019.05.010" target="_blank" rel="noopener">DOI</a></p>
+              <details>
+                <summary>Abstract</summary>
+                <p>The main purpose of this study was to investigate keywords related to medical tourism in daily and medical newspapers and to analyze networks between keywords. We collected newspaper articles by running a web crawler with Python. A total of 3,802 articles from 4 medical newspapers and 1,705 articles from 5 daily newspapers from 2009 to 2017 were reviewed. The clusters derived from daily newspapers focus mainly on medical tourists, medical care and service, regional vitalization, and field support. In contrast, the clusters derived from medical newspapers focus mainly on medical tourism marketing, introducing medical treatment overseas, the medical community’s voice, and medical tourism vitalization with support from a government. We found that the content varied depending on the characteristics of the newspapers. This information is necessary to understand various perspectives on policymaking. The academic contributions and practical implications of the findings are discussed.</p>
+              </details>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="block">
+        <div class="block-head"><h2>Manuscripts Under Revision</h2></div>
+        <ul class="items">
+          <li class="item">
+            <span class="item-year">Revision</span>
+            <div class="item-body">
+              <h3>Sex as Leisure View, Sexual Comfort, and Cybersex Repertoires with a Primary Partner, Known Non-Partner(s), and Stranger(s)</h3>
+              <p class="cite"><b>Kim, S.</b> &amp; Berdychevsky, L. · <i>Journal of Leisure Research</i> <span class="status">Under revision</span></p>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="block">
+        <div class="block-head"><h2>Book Chapter</h2></div>
+        <ul class="items">
+          <li class="item">
+            <span class="item-year">Accepted</span>
+            <div class="item-body">
+              <h3>Navigating Sex Tech in Hospitality Through Social, Institutional, and Legal Perspectives</h3>
+              <p class="cite"><b>Kim, S.</b> &amp; Berdychevsky, L. · In N. Carr &amp; L. Berdychevsky (Eds.), <i>Sex in Hospitality: The Good, the Bad, and the Ugly</i>. CABI.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="block">
+        <div class="block-head"><h2>Conference Presentations</h2><span class="eyebrow">Peer-reviewed</span></div>
+        <ul class="rows">
+          <li class="row"><span class="row-when">Nov 2026</span><div class="row-what"><p>Kim, S. &amp; Berdychevsky, L. Intrinsic Motivations, Facilitating Factors, and Biopsychosocial Benefits of Online Sexual Activities. <span class="sub">Society for the Scientific Study of Sexuality (SSSS) Annual Conference, virtual.</span></p></div></li>
+          <li class="row"><span class="row-when">Feb 2026</span><div class="row-what"><p>Kim, S. &amp; Berdychevsky, L. Online Sexual Behavior: Exploring the Motivations and Leisure Qualities. <span class="sub">The Academy of Leisure Sciences (TALS) Conference, Philadelphia, PA.</span></p></div></li>
+          <li class="row"><span class="row-when">Feb 2026</span><div class="row-what"><p>Kim, S. &amp; Berdychevsky, L. Sex as Leisure and Sexual Comfort in the Digital World. <span class="sub">The Academy of Leisure Sciences (TALS) Conference, Philadelphia, PA.</span></p></div></li>
+          <li class="row"><span class="row-when">Mar 2025</span><div class="row-what"><p>Kim, S. &amp; Berdychevsky, L. Cybersex as Leisure: Profiling the Participants in Online Sexual Activities. <span class="sub">The Academy of Leisure Sciences (TALS) Conference, Pittsburgh, PA.</span></p></div></li>
+          <li class="row"><span class="row-when">Mar 2025</span><div class="row-what"><p>Kim, S., Berdychevsky, L., Nimrod, G., Eldreth, D., Sloane, S., &amp; Dariotis, J. K. Innovation in Leisure as a Coping Mechanism with the COVID-19 Pandemic. <span class="sub">The Academy of Leisure Sciences (TALS) Conference, Pittsburgh, PA.</span></p></div></li>
+          <li class="row"><span class="row-when">Oct 2024</span><div class="row-what"><p>Eldreth, D., Dariotis, J. K., Sloane, S., Kim, S., Berdychevsky, L., Smith, R. L., &amp; Noor, I. Perceived Acute and Residual Effects of COVID-19 and Public Health Mandates on Childcare Providers and Child Development. <span class="sub">American Public Health Association (APHA) Annual Meeting and Expo, Minneapolis, MN.</span></p></div></li>
+          <li class="row"><span class="row-when">May 2024</span><div class="row-what"><p>Kim, S., Berdychevsky, L., Nimrod, G., Eldreth, D., Sloane, S., &amp; Dariotis, J. K. Innovation in Leisure as a Coping Mechanism with the COVID-19 Pandemic. <span class="sub">20th International Congress of Qualitative Inquiry (ICQI), Champaign-Urbana, IL.</span></p></div></li>
+          <li class="row"><span class="row-when">May 2024</span><div class="row-what"><p>Dariotis, J. K., Eldreth, D., Sloane, S., Noor, I., Ward, S., Kim, S., Berdychevsky, L., &amp; Smith, R. L. Vaccine Uptake Personas and Relevant Health Communication Strategies. <span class="sub">20th International Congress of Qualitative Inquiry (ICQI), Champaign-Urbana, IL.</span></p></div></li>
+          <li class="row"><span class="row-when">Feb 2024</span><div class="row-what"><p>Kim, S., Yan, X., &amp; Berdychevsky, L. Sexual Health Education for Leisure Travelers. <span class="sub">The Academy of Leisure Sciences (TALS) Conference, New Orleans, LA.</span></p></div></li>
+          <li class="row"><span class="row-when">Nov 2023</span><div class="row-what"><p>Dariotis, J. K., Eldreth, D., Sloane, S., Noor, I., Ward, S., Kim, S., Berdychevsky, L., &amp; MMCOVID Investigators. Anticipated HIV Vaccine Uptake in a Post-COVID World and Public Health Messaging Implications. <span class="sub">American Public Health Association (APHA) Annual Meeting and Expo, Atlanta, GA.</span></p></div></li>
+          <li class="row"><span class="row-when">Jul 2018</span><div class="row-what"><p>Kim, S. The Travel Adaptation Process of Companion Dog Owners: A Grounded Theory Approach. <span class="sub">84th Tourism Sciences Society of Korea (TOSOK) Seoul International Conference, Seoul, South Korea. Best Paper Award, Graduate Student Research Paper Competition.</span></p></div></li>
+          <li class="row"><span class="row-when">Apr 2018</span><div class="row-what"><p>Kim, S. &amp; Lee, W. S. Keyword Analysis for Medical Tourism Among Newspapers Using Text Mining: The South Korea Case. <span class="sub">Fall Conference of the Academic Society of Event &amp; Convention, Seoul, South Korea.</span></p></div></li>
+        </ul>
+      </div>
+
+      <div class="block">
+        <div class="block-head"><h2>Campus &amp; Regional Presentations</h2></div>
+        <ul class="rows">
+          <li class="row"><span class="row-when">Apr 2026</span><div class="row-what"><p>Choudhry, R.*, Langunas, A.*, Estrada, D.*, &amp; Kim, S. The Effects of Fitness Tracker Apps &amp; Wearables on College Students’ Self-Reported Anxiety. <span class="sub">Undergraduate Research Symposium, UIUC.</span></p></div></li>
+          <li class="row"><span class="row-when">May 2025</span><div class="row-what"><p>Kim, S. &amp; Berdychevsky, L. Socio-Demographic &amp; Socio-Psychological Profiling of (Non)Participants in Online Sexual Activities. <span class="sub">Center for Gender and Sex in Health Spring Workshop, Grainger College of Engineering, UIUC.</span></p></div></li>
+          <li class="row"><span class="row-when">Apr 2024</span><div class="row-what"><p>Grossen, C.*, Kim, S., &amp; Berdychevsky, L. Online Adult Entertainment Platforms: Understanding Motivations and Differences between the Users and Non-users. <span class="sub">Undergraduate Research Symposium and Applied Health Sciences Research Expo, UIUC.</span></p></div></li>
+        </ul>
+        <p class="note">* Undergraduate student mentee</p>
+      </div>
+    </section>
+
+    <!-- TEACHING -->
+    <section class="view" id="view-teaching" data-view="teaching" aria-label="Teaching" hidden>
+      <div class="block">
+        <div class="block-head"><h2>Instructor of Record</h2><span class="eyebrow">UIUC</span></div>
+        <ul class="rows">
+          <li class="row"><span class="row-when">2025–2026</span><div class="row-what"><p><span class="course-code">RST 370</span>Research Methods &amp; Analysis <span class="sub">· Fall 2025, Spring 2026</span></p><details><summary>Course description</summary><div class="desc"><p>Educates students in principles of research design, data collection, measurement, methods of statistical analysis, techniques in summarizing data, and the interpretation and application of research findings to the field of Leisure Studies. This course satisfies the General Education Criteria in Spring 2025 for: Quantitative Reasoning II.</p><p class="class-size">Class size: 50–63 students</p></div></details></div></li>
+        </ul>
+      </div>
+
+      <div class="block">
+        <div class="block-head"><h2>Graduate Teaching Assistant</h2><span class="eyebrow">UIUC</span></div>
+        <ul class="rows">
+          <li class="row"><span class="row-when">2024–2026</span><div class="row-what"><p><span class="course-code">RST 370</span>Research Methods &amp; Analysis <span class="sub">· Fall 2024, Spring 2025, Fall 2026</span></p><details><summary>Course description</summary><div class="desc"><p>Educates students in principles of research design, data collection, measurement, methods of statistical analysis, techniques in summarizing data, and the interpretation and application of research findings to the field of Leisure Studies. This course satisfies the General Education Criteria in Spring 2025 for: Quantitative Reasoning II.</p><p class="class-size">Class size: 54–69 students</p></div></details></div></li>
+          <li class="row"><span class="row-when">Spring 2025</span><div class="row-what"><p><span class="course-code">RST 465</span>Event Implementation and Evaluation in Recreation, Sport and Tourism</p><details><summary>Course description</summary><div class="desc"><p>This course is the second of a two course event capstone series. The first class (RST 460) examines the core basics from idea generation through initial planning stages. This course (RST 465) builds on material covered in the first course and includes an in-depth, thorough, and critical examination of the event experience including the roles of the event manager, event planning strategies, marketing and sponsorship concepts, legal aspects, staff management, budgeting, and evaluation.</p><p class="class-size">Class size: 92 students</p></div></details></div></li>
+          <li class="row"><span class="row-when">Spring 2024</span><div class="row-what"><p><span class="course-code">RST 350/570</span>Tourism and Culture / Cultural Aspects of Tourism <span class="sub">· Cross-listed undergraduate and graduate course</span></p><details><summary>Course description</summary><div class="desc"><p><b>RST 350: Tourism and Culture (undergraduate).</b> Studies the relationships that exist between tourists, hosts, their respective culture(s), and the cultural environments in which they interact. Studies tourism and its impacts across cultural boundaries, as well as concepts of cultural authenticity, modernity, image creation, social justice, diversity, and representation of social, racial and ethnic groups. Field trip required.</p><p><b>RST 570: Cultural Aspects of Tourism (graduate).</b> Develops an advanced understanding of relationships between tourists and the toured, including in-depth knowledge of the phenomenon of tourism and its consequences for individuals and societies. Examines the complexity of movement of peoples across cultural boundaries, coupled with theories related to authenticity, modernity, image creation, social justice, diversity, and representation of social, racial and ethnic groups.</p><p class="class-size">Class size: 36 students</p></div></details></div></li>
+          <li class="row"><span class="row-when">Spring 2024</span><div class="row-what"><p><span class="course-code">RST 242</span>Nature and American Culture <span class="status">Online</span></p><details><summary>Course description</summary><div class="desc"><p>Designed to aid in students’ understanding, appreciation, and critique of cultural meanings associated with American natural landscapes. To do so, traditional perspectives including colonial American, romantic, and science-based conservation are characterized, as well as revisionist themes aligned with gender, cultural pluralism, and societal meanings of parks and protected areas. Implications of diversity including gender and multicultural meanings toward nature are developed and provide the basis for assessing tenets of contemporary environmental policy and supporting concepts associated with community-based conservation.</p><p class="class-size">Class size: 630–687 students</p></div></details></div></li>
+        </ul>
+      </div>
+
+      <div class="block">
+        <div class="block-head"><h2>Undergraduate Research Mentoring</h2></div>
+        <ul class="rows">
+          <li class="row"><span class="row-when">2025–2026</span><div class="row-what"><p>Reeha Choudhry, America Langunas, &amp; Dulce Estrada Flores, “Health Technologies and Anxiety Among College Students” <span class="sub">· Presented at the UIUC Undergraduate Research Symposium, 2026</span></p></div></li>
+          <li class="row"><span class="row-when">2024</span><div class="row-what"><p>Claire Grossen, “Sexual Behavior in Digital Contexts” <span class="sub">· <a href="https://www.ahs.illinois.edu/research-and-community/student-opportunities/" target="_blank" rel="noopener">SPARK Program</a> &amp; <a href="https://jamesscholars.education.illinois.edu/" target="_blank" rel="noopener">James Scholar Honors Program</a>; presented at the UIUC Undergraduate Research Symposium and Applied Health Sciences Research Expo, 2024</span></p></div></li>
+        </ul>
+      </div>
+
+      <div class="block">
+        <div class="block-head"><h2>Teaching Development</h2></div>
+        <ul class="rows">
+          <li class="row"><span class="row-when">2024</span><div class="row-what"><p>Certificate in Foundations of Teaching <span class="sub">· Center for Innovation in Teaching &amp; Learning (CITL), UIUC</span></p></div></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- CV -->
+    <section class="view" id="view-cv" data-view="cv" aria-label="CV" hidden>
+      <div class="cv-cta">
+        <a class="button" href="assets/Kim_CV.pdf" target="_blank" rel="noopener">Download full CV (PDF)</a>
+        <span class="muted" style="font-size:.95rem">Updated October 2026</span>
+      </div>
+
+      <div class="block">
+        <div class="block-head"><h2>Education</h2></div>
+        <ul class="rows">
+          <li class="row"><span class="row-when">2027 (exp.)</span><div class="row-what"><p>Ph.D., Recreation, Sport and Tourism <span class="sub">· University of Illinois Urbana-Champaign</span></p></div></li>
+          <li class="row"><span class="row-when">2020</span><div class="row-what"><p>M.S., Leisure and Tourism Sciences <span class="sub">· Kyonggi University, South Korea</span></p></div></li>
+          <li class="row"><span class="row-when">2018</span><div class="row-what"><p>B.S., Tourism and Recreation; Sport Tourism <span class="sub">· Kyonggi University, South Korea</span></p></div></li>
+        </ul>
+      </div>
+
+      <div class="block">
+        <div class="block-head"><h2>Honors &amp; Awards</h2></div>
+        <ul class="rows">
+          <li class="row"><span class="row-when">2025</span><div class="row-what"><p>Allen V. Sapora Research Award <span class="sub">· Department of Recreation, Sport and Tourism, UIUC</span></p></div></li>
+          <li class="row"><span class="row-when">2024–2026</span><div class="row-what"><p>Conference Presentation Travel Award <span class="sub">· Department of Recreation, Sport and Tourism, UIUC</span></p></div></li>
+          <li class="row"><span class="row-when">2018–2019</span><div class="row-what"><p>Graduate Research Fellowship <span class="sub">· Kyonggi University</span></p></div></li>
+          <li class="row"><span class="row-when">2018</span><div class="row-what"><p>Best Paper Award, Graduate Student Research Paper Competition <span class="sub">· 84th Tourism Sciences Society of Korea (TOSOK) Seoul International Conference</span></p></div></li>
+          <li class="row"><span class="row-when">2018</span><div class="row-what"><p>Best Undergraduate Thesis Award <span class="sub">· Department of Tourism and Recreation, Kyonggi University</span></p></div></li>
+          <li class="row"><span class="row-when">2017</span><div class="row-what"><p>Second Prize, Public Big Data Competition (Data Visualization Track) <span class="sub">· National Information Society Agency (NIA), South Korea</span></p></div></li>
+        </ul>
+      </div>
+
+      <div class="block">
+        <div class="block-head"><h2>Research Experience</h2></div>
+        <ul class="rows">
+          <li class="row"><span class="row-when">2022–2023</span><div class="row-what"><p>Graduate Research Assistant <span class="sub">· UIUC, supervised by Dr. Liza Berdychevsky</span></p></div></li>
+          <li class="row"><span class="row-when">2018–2020</span><div class="row-what"><p>Graduate Research Assistant <span class="sub">· Kyonggi University, supervised by Dr. Won Seok Lee</span></p></div></li>
+          <li class="row"><span class="row-when">2017</span><div class="row-what"><p>Undergraduate Research Assistant <span class="sub">· Tourism Research Institute, Kyonggi University</span></p></div></li>
+        </ul>
+      </div>
+
+      <div class="block">
+        <div class="block-head"><h2>Service</h2></div>
+        <ul class="rows">
+          <li class="row"><span class="row-when">2025–2026</span><div class="row-what"><p>Ad-Hoc Reviewer, <i>Leisure Sciences</i></p></div></li>
+          <li class="row"><span class="row-when">2026</span><div class="row-what"><p>Abstract Reviewer, The Academy of Leisure Sciences (TALS) Conference</p></div></li>
+          <li class="row"><span class="row-when">2026</span><div class="row-what"><p>Awareness Month Committee Member <span class="sub">· Women’s Resources Center, UIUC</span></p></div></li>
+          <li class="row"><span class="row-when">2025</span><div class="row-what"><p>Moderator, The Academy of Leisure Sciences (TALS) Conference</p></div></li>
+          <li class="row"><span class="row-when">2025–2026</span><div class="row-what"><p>Ad-Hoc Judge, Undergraduate Research Symposium <span class="sub">· UIUC</span></p></div></li>
+          <li class="row"><span class="row-when">2025</span><div class="row-what"><p>Ad-Hoc Judge, IJAS State Exposition <span class="sub">· Illinois Junior Academy of Science</span></p></div></li>
+          <li class="row"><span class="row-when">2024–2025</span><div class="row-what"><p>Global Educator <span class="sub">· International Student and Scholar Services, UIUC</span></p></div></li>
+        </ul>
+      </div>
+
+      <div class="block">
+        <div class="block-head"><h2>Certificates</h2></div>
+        <ul class="rows">
+          <li class="row"><span class="row-when">2025</span><div class="row-what"><p>Community Engaged Scholar Certificate <span class="sub">· We CU, UIUC</span></p></div></li>
+          <li class="row"><span class="row-when">2024</span><div class="row-what"><p>Certificate in Foundations of Teaching <span class="sub">· CITL, UIUC</span></p></div></li>
+        </ul>
+      </div>
+    </section>
+  </main>
+
+  <footer>© 2026 Sohyeon Kim · Department of Recreation, Sport and Tourism, University of Illinois Urbana-Champaign</footer>
+</div>
+
+<script>
+(function () {
+  var views = ["about", "research", "teaching", "cv"];
+  function show() {
+    var name = (location.hash || "#about").slice(1);
+    if (views.indexOf(name) === -1) name = "about";
+    document.querySelectorAll("section.view").forEach(function (s) { s.hidden = s.dataset.view !== name; });
+    document.querySelectorAll("nav a").forEach(function (a) {
+      if (a.dataset.view === name) a.setAttribute("aria-current", "page"); else a.removeAttribute("aria-current");
+    });
+  }
+  window.addEventListener("hashchange", function () { show(); window.scrollTo(0, 0); });
+  show();
+
+
+  var btn = document.getElementById("copy-email");
+  btn.addEventListener("click", function () {
+    var text = btn.dataset.copy;
+    function done() { btn.textContent = "Copied"; setTimeout(function () { btn.textContent = "Copy"; }, 1600); }
+    function fallback() {
+      var el = document.querySelector(".email"), r = document.createRange();
+      r.selectNodeContents(el); var s = getSelection(); s.removeAllRanges(); s.addRange(r);
+      btn.textContent = "Selected";
+    }
+    try { navigator.clipboard.writeText(text).then(done, fallback); } catch (e) { fallback(); }
+  });
+})();
+</script>
+
+</html>
